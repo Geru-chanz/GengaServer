@@ -1,3 +1,4 @@
+var http = require('http')
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -8,6 +9,48 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 
 var app = express();
+
+// WebSocket => 8000番に繋ぐとできるよ
+// ws://localhost:8000
+var WebSocketServer = require('ws').Server;
+var port = process.env.PORT || 8000;
+
+// setting ws
+var server = http.createServer(app);
+var wss = new WebSocketServer({port:port});
+console.log("websocket server created");
+
+var connections = [];
+
+// 接続開始
+wss.on('connection', function(ws) {
+  console.log('websocket connection open');
+
+  connections.push(ws);
+  /**
+   * ws受信時
+   * 操作元のrender updateを受けたら、全員に最新のrenderを返す
+   */
+  ws.on('message', function(data) {
+    console.log(connections.indexOf(ws) + 1 +'さんが動かしました。更新します');
+    wss.clients.forEach(function(client) {
+      client.send("ユーザー" + (connections.indexOf(ws) + 1) +"さんの最新のrenderです =>" + data);
+    });
+  });
+
+  // クローズ
+  ws.on('close', function() {
+    console.log('websocket connection close');
+    broadcast(JSON.stringify(message));
+  });
+});
+
+//ブロードキャストする
+function broadcast(message) {
+    connections.forEach(function (con, i) {
+        con.send(message);
+    });
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
