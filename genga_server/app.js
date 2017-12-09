@@ -33,20 +33,24 @@ wss.on('connection', function(ws) {
    */
   ws.on('message', function(data) {
     console.log(connections.indexOf(ws) + 1 +'さんが動かしました。更新します');
+    console.log(data);
     wss.clients.forEach(function(client) {
-      client.send("ユーザー" + (connections.indexOf(ws) + 1) +"さんの最新のrenderです =>" + data);
+      client.send("{user:" + (connections.indexOf(ws) + 1) +", send:" + data + "}");
     });
   });
 
   // クローズ
   ws.on('close', function() {
-    console.log('websocket connection close');
-    broadcast(JSON.stringify(message));
+    const idx = connections.indexOf(ws);
+
+    connections = connections.splice(idx + 1, 1);
+    broadcast(JSON.stringify(idx + 1 + 'さんが落ちました'));
   });
 });
 
 //ブロードキャストする
 function broadcast(message) {
+    console.log('called');
     connections.forEach(function (con, i) {
         con.send(message);
     });
