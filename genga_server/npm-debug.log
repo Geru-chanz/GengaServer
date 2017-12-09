@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/gumio_inf/.nodebrew/node/v7.1.0/bin/node',
+1 verbose cli   '/Users/gumio_inf/.nodebrew/current/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@3.10.9
+3 info using node@v7.1.0
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle genga-server@0.0.0~prestart: genga-server@0.0.0
+6 silly lifecycle genga-server@0.0.0~prestart: no script for prestart, continuing
+7 info lifecycle genga-server@0.0.0~start: genga-server@0.0.0
+8 verbose lifecycle genga-server@0.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle genga-server@0.0.0~start: PATH: /Users/gumio_inf/.nodebrew/node/v7.1.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/gumio_inf/Hackday/Genga/GengaServer/genga_server/node_modules/.bin:/Users/gumio_inf/.nodebrew/node/v7.1.0/bin:/Users/gumio_inf/.pyenv/shims:/Users/gumio_inf/.pyenv/bin:/Users/gumio_inf/.nodebrew/current/bin:/usr/local/opt/openssl/bin/:/Users/gumio_inf/.anyenv/envs/rbenv/shims:/Users/gumio_inf/.anyenv/envs/rbenv/bin:/Users/gumio_inf/.anyenv/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/gumio_inf/go/bin:/Users/gumio_inf/Library/Android/sdk/platform-tools:/Users/gumio_inf/Kotlin/Native/kotlin-native/dist/bin
+10 verbose lifecycle genga-server@0.0.0~start: CWD: /Users/gumio_inf/Hackday/Genga/GengaServer/genga_server
+11 silly lifecycle genga-server@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
+12 silly lifecycle genga-server@0.0.0~start: Returned: code: 1  signal: null
+13 info lifecycle genga-server@0.0.0~start: Failed to exec start script
+14 verbose stack Error: genga-server@0.0.0 start: `node ./bin/www`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/Users/gumio_inf/.nodebrew/node/v7.1.0/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/Users/gumio_inf/.nodebrew/node/v7.1.0/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:885:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid genga-server@0.0.0
+16 verbose cwd /Users/gumio_inf/Hackday/Genga/GengaServer/genga_server
+17 error Darwin 16.3.0
+18 error argv "/Users/gumio_inf/.nodebrew/node/v7.1.0/bin/node" "/Users/gumio_inf/.nodebrew/current/bin/npm" "start"
+19 error node v7.1.0
+20 error npm  v3.10.9
+21 error code ELIFECYCLE
+22 error genga-server@0.0.0 start: `node ./bin/www`
+22 error Exit status 1
+23 error Failed at the genga-server@0.0.0 start script 'node ./bin/www'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the genga-server package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node ./bin/www
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs genga-server
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls genga-server
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
