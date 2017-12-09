@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+  <button onclick='f()'>var</button>
+
+<script>
+  window.onload = function(){
+    var ws = new WebSocket('ws://genga-rp7rf.c9users.io');
+
+    // 接続が始まった時
+    ws.onopen = function() { };
+    // 接続が終わった時
+    ws.onclose = function() { };
+    // メッセージを受け取った時
+    ws.onmessage = function(m) { console.log(m); };
+
+    f = function(){
+      ws.send("foo");
+    }
+    // 1秒おきに動作
+  };
+  
+
+</script>
+</body>
+</html>
